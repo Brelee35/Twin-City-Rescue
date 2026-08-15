@@ -1,4 +1,5 @@
 Twin Cities Animal Rescue
+
 About the Project
 
 Twin Cities Animal Rescue is a nonprofit animal rescue website created to provide information about animal adoption, fostering, volunteering, and ways the community can support the organization.
