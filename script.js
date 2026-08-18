@@ -157,7 +157,7 @@ function validateForm(event) {
     if (email.value.trim() === "") {
         emailError.textContent = "Please enter your email address.";
         isValid = false;
-    } else if (!emailPattern.test(email.value.trim())) {
+    }  if (!emailPattern.test(email.value.trim())) {
         emailError.textContent = "Please enter a valid email address.";
         isValid = false;
     }
