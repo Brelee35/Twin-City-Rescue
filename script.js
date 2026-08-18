@@ -98,31 +98,6 @@ function loadUserData() {
     }
 }
 
-// Set up the page when it loads
-function initializePage() {
-    const interest = document.getElementById("interest");
-    const name = document.getElementById("name");
-    const email = document.getElementById("email");
-    const form = document.getElementById("interestForm");
-
-    if (interest) {
-        interest.addEventListener("change", showInterestInfo);
-        interest.addEventListener("change", saveUserData);
-    }
-
-    if (name) {
-        name.addEventListener("input", saveUserData);
-    }
-
-    if (email) {
-        email.addEventListener("input", saveUserData);
-    }
-
-    if (form) {
-        form.addEventListener("submit", validateForm);
-    }
-
-    loadUserData();
 // Validate the interest form
 function validateForm(event) {
     event.preventDefault();
@@ -157,7 +132,7 @@ function validateForm(event) {
     if (email.value.trim() === "") {
         emailError.textContent = "Please enter your email address.";
         isValid = false;
-    }  if (!emailPattern.test(email.value.trim())) {
+    } else if (!emailPattern.test(email.value.trim())) {
         emailError.textContent = "Please enter a valid email address.";
         isValid = false;
     }
@@ -174,12 +149,41 @@ function validateForm(event) {
         isValid = false;
     }
 
-    // Save the information if everything is valid
+    // Save information if everything is valid
     if (isValid) {
         saveUserData();
-        alert("Thank you for your interest in supporting Twin Cities Animal Rescue!");
+
+        alert(
+            "Thank you for your interest in supporting Twin Cities Animal Rescue!"
+        );
     }
 }
+
+// Set up the page when it loads
+function initializePage() {
+    const interest = document.getElementById("interest");
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const form = document.getElementById("interestForm");
+
+    if (interest) {
+        interest.addEventListener("change", showInterestInfo);
+        interest.addEventListener("change", saveUserData);
+    }
+
+    if (name) {
+        name.addEventListener("input", saveUserData);
+    }
+
+    if (email) {
+        email.addEventListener("input", saveUserData);
+    }
+
+    if (form) {
+        form.addEventListener("submit", validateForm);
+    }
+
+    loadUserData();
 }
 
 // Run the page setup
