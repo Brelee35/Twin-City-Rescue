@@ -123,7 +123,63 @@ function initializePage() {
     }
 
     loadUserData();
+// Validate the interest form
+function validateForm(event) {
+    event.preventDefault();
 
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const interest = document.getElementById("interest");
+    const message = document.getElementById("message");
+
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const interestError = document.getElementById("interestError");
+    const messageError = document.getElementById("messageError");
+
+    // Clear previous error messages
+    nameError.textContent = "";
+    emailError.textContent = "";
+    interestError.textContent = "";
+    messageError.textContent = "";
+
+    let isValid = true;
+
+    // Check name
+    if (name.value.trim() === "") {
+        nameError.textContent = "Please enter your full name.";
+        isValid = false;
+    }
+
+    // Check email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email.value.trim() === "") {
+        emailError.textContent = "Please enter your email address.";
+        isValid = false;
+    } else if (!emailPattern.test(email.value.trim())) {
+        emailError.textContent = "Please enter a valid email address.";
+        isValid = false;
+    }
+
+    // Check interest
+    if (interest.value === "") {
+        interestError.textContent = "Please select how you would like to help.";
+        isValid = false;
+    }
+
+    // Check message length
+    if (message.value.trim() !== "" && message.value.trim().length < 10) {
+        messageError.textContent = "Please enter at least 10 characters.";
+        isValid = false;
+    }
+
+    // Save the information if everything is valid
+    if (isValid) {
+        saveUserData();
+        alert("Thank you for your interest in supporting Twin Cities Animal Rescue!");
+    }
+}
 }
 
 // Run the page setup
