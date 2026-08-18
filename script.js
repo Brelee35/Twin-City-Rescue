@@ -62,6 +62,7 @@ function loadUserData() {
         showInterestInfo();
     }
 
+
 {
     const name = document.getElementById("name");
     const email = document.getElementById("email");
@@ -98,13 +99,27 @@ function loadUserData() {
     }
 }
 
-// Start the page when it loads
-function initializePage() {
+// Set up the page when it loads
+function initializePage() 
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+
+if (name) {
+    name.addEventListener("input", saveUserData);
+}
+
+if (email) {
+    email.addEventListener("input", saveUserData);
+}{
     const interest = document.getElementById("interest");
 
     if (interest) {
         interest.addEventListener("change", showInterestInfo);
+        interest.addEventListener("change", saveUserData);
     }
+
+    loadUserData();
+}
 }
 
 // Run the page setup
