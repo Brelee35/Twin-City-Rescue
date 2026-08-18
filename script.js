@@ -188,4 +188,3 @@ function initializePage() {
 
 // Run the page setup
 document.addEventListener("DOMContentLoaded", initializePage);
-alert("JavaScript is working!");
