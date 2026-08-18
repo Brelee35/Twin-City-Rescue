@@ -25,7 +25,28 @@ const helpOptions = {
         description: "There are many ways to support Twin Cities Animal Rescue. Contact us to learn how you can make a difference."
     }
 };
+// Additional information about each type of involvement
+const interestDetails = {
+    volunteer: {
+        time: "Flexible volunteer opportunities are available.",
+        nextStep: "Contact us to learn about current volunteer opportunities."
+    },
 
+    foster: {
+        time: "Foster commitments can vary depending on the animal.",
+        nextStep: "Contact us to learn about becoming a foster family."
+    },
+
+    adoption: {
+        time: "The adoption process depends on the animal and family.",
+        nextStep: "Contact us to learn about available animals."
+    },
+
+    other: {
+        time: "There are several ways to support our rescue.",
+        nextStep: "Contact us to discuss other ways you can help."
+    }
+};
 // Array used to organize the available interests
 const interestTypes = [
     "volunteer",
