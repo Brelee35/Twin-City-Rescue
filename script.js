@@ -35,7 +35,50 @@ const interestTypes = [
 ];
 
 // Show information based on the visitor's selection
-function showInterestInfo() {
+function showInterestInfo() 
+// Save the visitor's information
+
+function saveUserData() 
+// Load saved visitor information
+function loadUserData() {
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const interest = document.getElementById("interest");
+
+    const savedName = localStorage.getItem("rescueName");
+    const savedEmail = localStorage.getItem("rescueEmail");
+    const savedInterest = localStorage.getItem("rescueInterest");
+
+    if (name && savedName) {
+        name.value = savedName;
+    }
+
+    if (email && savedEmail) {
+        email.value = savedEmail;
+    }
+
+    if (interest && savedInterest) {
+        interest.value = savedInterest;
+        showInterestInfo();
+    }
+
+{
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const interest = document.getElementById("interest");
+
+    if (name) {
+        localStorage.setItem("rescueName", name.value);
+    }
+
+    if (email) {
+        localStorage.setItem("rescueEmail", email.value);
+    }
+
+    if (interest) {
+        localStorage.setItem("rescueInterest", interest.value);
+    }
+}{
     const interest = document.getElementById("interest");
     const interestInfo = document.getElementById("interestInfo");
 
