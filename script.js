@@ -35,10 +35,45 @@ const interestTypes = [
 ];
 
 // Show information based on the visitor's selection
-function showInterestInfo() 
-// Save the visitor's information
+function showInterestInfo() {
+    const interest = document.getElementById("interest");
+    const interestInfo = document.getElementById("interestInfo");
 
-function saveUserData() 
+    if (!interest || !interestInfo) {
+        return;
+    }
+
+    const selectedInterest = interest.value;
+
+    if (helpOptions[selectedInterest]) {
+        interestInfo.innerHTML = `
+            <h3>${helpOptions[selectedInterest].title}</h3>
+            <p>${helpOptions[selectedInterest].description}</p>
+        `;
+    } else {
+        interestInfo.innerHTML = "";
+    }
+}
+
+// Save the visitor's information
+function saveUserData() {
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const interest = document.getElementById("interest");
+
+    if (name) {
+        localStorage.setItem("rescueName", name.value);
+    }
+
+    if (email) {
+        localStorage.setItem("rescueEmail", email.value);
+    }
+
+    if (interest) {
+        localStorage.setItem("rescueInterest", interest.value);
+    }
+}
+
 // Load saved visitor information
 function loadUserData() {
     const name = document.getElementById("name");
@@ -61,65 +96,28 @@ function loadUserData() {
         interest.value = savedInterest;
         showInterestInfo();
     }
-
-
-{
-    const name = document.getElementById("name");
-    const email = document.getElementById("email");
-    const interest = document.getElementById("interest");
-
-    if (name) {
-        localStorage.setItem("rescueName", name.value);
-    }
-
-    if (email) {
-        localStorage.setItem("rescueEmail", email.value);
-    }
-
-    if (interest) {
-        localStorage.setItem("rescueInterest", interest.value);
-    }
-}{
-    const interest = document.getElementById("interest");
-    const interestInfo = document.getElementById("interestInfo");
-
-    if (!interest || !interestInfo) {
-        return;
-    }
-
-    const selectedInterest = interest.value;
-
-    if (helpOptions[selectedInterest]) {
-        interestInfo.innerHTML = `
-            <h3>${helpOptions[selectedInterest].title}</h3>
-            <p>${helpOptions[selectedInterest].description}</p>
-        `;
-    } else {
-        interestInfo.innerHTML = "";
-    }
 }
 
 // Set up the page when it loads
-function initializePage() 
-const name = document.getElementById("name");
-const email = document.getElementById("email");
-
-if (name) {
-    name.addEventListener("input", saveUserData);
-}
-
-if (email) {
-    email.addEventListener("input", saveUserData);
-}{
+function initializePage() {
     const interest = document.getElementById("interest");
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
 
     if (interest) {
         interest.addEventListener("change", showInterestInfo);
         interest.addEventListener("change", saveUserData);
     }
 
+    if (name) {
+        name.addEventListener("input", saveUserData);
+    }
+
+    if (email) {
+        email.addEventListener("input", saveUserData);
+    }
+
     loadUserData();
-}
 }
 
 // Run the page setup
