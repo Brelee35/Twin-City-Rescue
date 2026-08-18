@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +9,6 @@
 
 <body>
 
-```
 <header>
     <h1>Twin Cities Animal Rescue</h1>
 
@@ -45,19 +43,24 @@
 
         <form id="interestForm">
 
+            <!-- Full Name -->
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name">
             <span id="nameError" class="error-message"></span>
 
+            <!-- Email -->
             <label for="email">Email Address:</label>
             <input type="email" id="email" name="email">
             <span id="emailError" class="error-message"></span>
 
+            <!-- Phone -->
             <label for="phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone">
 
+            <!-- Interest Selection -->
             <label for="interest">I am interested in:</label>
-            <select id="interest" name="interest" required>
+
+            <select id="interest" name="interest">
                 <option value="">Please select one</option>
                 <option value="volunteer">Volunteering</option>
                 <option value="foster">Fostering</option>
@@ -66,13 +69,18 @@
             </select>
 
             <span id="interestError" class="error-message"></span>
-            
+
+            <!-- Dynamic JavaScript Information -->
             <div id="interestInfo" class="interest-info"></div>
-            
+
+            <!-- Message -->
             <label for="message">Tell Us More:</label>
+
             <textarea id="message" name="message"></textarea>
+
             <span id="messageError" class="error-message"></span>
 
+            <!-- Submit -->
             <button type="submit">Submit Interest</button>
 
         </form>
@@ -109,9 +117,8 @@
 <footer>
     <p>&copy; 2026 Twin Cities Animal Rescue</p>
 </footer>
-```
-    <script src="script.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
-
