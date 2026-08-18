@@ -103,6 +103,7 @@ function initializePage() {
     const interest = document.getElementById("interest");
     const name = document.getElementById("name");
     const email = document.getElementById("email");
+    const form = document.getElementById("interestForm");
 
     if (interest) {
         interest.addEventListener("change", showInterestInfo);
@@ -117,7 +118,12 @@ function initializePage() {
         email.addEventListener("input", saveUserData);
     }
 
+    if (form) {
+        form.addEventListener("submit", validateForm);
+    }
+
     loadUserData();
+
 }
 
 // Run the page setup
